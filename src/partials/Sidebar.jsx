@@ -1031,6 +1031,24 @@ function Sidebar({
                   );
                 }}
               </SidebarLinkGroup>
+              {/* Legal Documents */}
+              <li className="mb-1 last:mb-0">
+                <NavLink
+                  end
+                  to="/legal-documents"
+                  className={({ isActive }) =>
+                    "flex items-center px-2 py-2 rounded text-sm font-medium transition-colors duration-150 " +
+                    (isActive
+                      ? "text-violet-500 bg-violet-50 dark:bg-gray-700"
+                      : "text-gray-700 dark:text-gray-200 hover:text-violet-500 hover:bg-violet-50 dark:hover:bg-gray-700")
+                  }
+                >
+                  <svg className="shrink-0 fill-current mr-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 0v12h8V2H4zm2 2h4v2H6V4zm0 4h4v2H6V8z" />
+                  </svg>
+                  <span>Legal Documents</span>
+                </NavLink>
+              </li>
             </ul>
           </div>
           {/* More group */}
