@@ -9,9 +9,17 @@ import './css/style.css';
 
 import './charts/ChartjsConfig';
 
+// Import context
+import { AuthProvider } from './utils/AuthContext';
+
+// Import components
+import ProtectedRoute from './components/ProtectedRoute';
+
 // Import pages
 import Dashboard from './pages/Dashboard';
 import LegalDocuments from './pages/LegalDocuments';
+import Login from './pages/Login';
+import Landing from './pages/Landing';
 
 function App() {
 
@@ -24,12 +32,22 @@ function App() {
   }, [location.pathname]); // triggered on route change
 
   return (
-    <>
+    <AuthProvider>
       <Routes>
-        <Route exact path="/" element={<Dashboard />} />
-        <Route exact path="/legal-documents" element={<LegalDocuments />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/landing" element={<Landing />} />
+        <Route exact path="/" element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        } />
+        <Route exact path="/legal-documents" element={
+          <ProtectedRoute>
+            <LegalDocuments />
+          </ProtectedRoute>
+        } />
       </Routes>
-    </>
+    </AuthProvider>
   );
 }
 
