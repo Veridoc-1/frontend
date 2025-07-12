@@ -7,7 +7,6 @@ import { ethers } from 'ethers';
 import { DOCUMENT_REGISTRY_ABI, DOCUMENT_REGISTRY_ADDRESS } from '../utils/contract';
 // import { NFTStorage } from 'nft.storage';
 
-
 function LegalDocuments() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -129,8 +128,8 @@ function LegalDocuments() {
       // Upload file to IPFS using Pinata
       let ipfsHash = '';
       if (form.file) {
-        const PINATA_API_KEY = process.env.PINATA_API_KEY;
-        const PINATA_API_SECRET = process.env.PINATA_API_SECRET;
+        const PINATA_API_KEY = process.env.REACT_APP_PINATA_API_KEY;
+        const PINATA_API_SECRET = process.env.REACT_APP_PINATA_API_SECRET ;
         if (!PINATA_API_KEY || !PINATA_API_SECRET) {
           setErrors(prev => ({ ...prev, submit: 'Pinata API key/secret not set. Please set REACT_APP_PINATA_API_KEY and REACT_APP_PINATA_API_SECRET in your .env file.' }));
           return;
