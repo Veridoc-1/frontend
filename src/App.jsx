@@ -18,6 +18,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 // Import pages
 import Dashboard from './pages/Dashboard';
 import LegalDocuments from './pages/LegalDocuments';
+import PublishedDocuments from './pages/PublishedDocuments';
 import Login from './pages/Login';
 import Landing from './pages/Landing';
 
@@ -42,9 +43,12 @@ function App() {
           </ProtectedRoute>
         } />
         <Route exact path="/legal-documents" element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <LegalDocuments />
-          </ProtectedRoute>
+          // </ProtectedRoute>
+        } />
+        <Route exact path="/published-documents" element={
+          <PublishedDocuments />
         } />
       </Routes>
     </AuthProvider>
